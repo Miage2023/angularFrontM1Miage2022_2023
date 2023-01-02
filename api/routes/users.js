@@ -41,4 +41,4 @@ function checkCredentials( request, result )
 	} );
 }
 
-module.exports = { checkJWT, checkCredentials };
+module.exports = { checkCredentials };
