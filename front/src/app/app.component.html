@@ -1,0 +1,57 @@
+<main>
+	<!-- En-tête de la page -->
+	<header>
+		<!-- Liens et mécanismes de navigation -->
+		<section>
+			<a routerLink="/home">
+				<!-- Lien vers l'accueil -->
+				<mat-icon aria-hidden="false" fontIcon="home"></mat-icon>
+				<h1>{{title}}</h1>
+			</a>
+
+			<div class="btnConnexion">
+				<!-- Bouton de connexion/déconnexion -->
+				<button class="ajouterBtn" mat-flat-button color="primary" (click)="showLogin()" *ngIf="!loginVisible && !isLogged">Se connecter</button>
+				<button class="ajouterBtn" mat-flat-button color="primary" (click)="logout()" *ngIf="isLogged">Se déconnecter</button>
+
+				<!-- Bouton pour peupler la base de données -->
+				<!-- <button mat-flat-button color="accent" (click)="initialiserLaBaseAvecDonneesDeTest()">Peupler BDD</button> -->
+			</div>
+		</section>
+
+		<!-- Formulaire de connexion -->
+		<section *ngIf="loginVisible">
+			<!-- Adresse électronique -->
+			<mat-form-field appearance="fill">
+				<mat-label>Entrer votre adresse électronique</mat-label>
+
+				<input matInput [(ngModel)]="email" required>
+
+				<mat-error *ngIf="validator.invalid">{{getErrorMessage()}}</mat-error>
+			</mat-form-field>
+
+			<!-- Mot de passe -->
+			<mat-form-field appearance="fill">
+				<mat-label>Entrer votre mot de passe</mat-label>
+
+				<input matInput [(ngModel)]="password" [type]="hide ? 'password' : 'text'" required>
+
+				<mat-error *ngIf="validator.invalid">{{getErrorMessage()}}</mat-error>
+
+				<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+					<mat-icon>{{hide ? "visibility_off" : "visibility"}}</mat-icon>
+				</button>
+			</mat-form-field>
+
+			<!-- Bouton de connexion -->
+			<button class="ajouterBtn" mat-flat-button color="accent" (click)="login()">Se connecter</button>
+		</section>
+	</header>
+
+	<hr />
+
+	<!-- Composant courant de la route sélectionné -->
+	<router-outlet></router-outlet>
+	
+</main>
+<app-footer></app-footer>
