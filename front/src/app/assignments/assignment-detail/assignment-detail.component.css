@@ -1,0 +1,15 @@
+.assignmentDetail {
+	margin-bottom: 1rem;
+}
+
+.assignmentDetail .mat-mdc-card-header {
+	gap: 1rem;
+	align-items: center;
+}
+
+mat-card-actions {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+}

@@ -1,0 +1,58 @@
+<section>
+	<header>
+		<aside>
+			<button class="ajouterBtn" mat-flat-button color="accent" (click)="onAddAssignmentBtnClick()" *ngIf="isLogged">Ajouter un nouveau devoir</button>
+		</aside>
+	</header>
+	<app-add-assignment *ngIf="formVisible"></app-add-assignment>
+	<section class="mat-elevation-z8">
+		<table mat-table [dataSource]="dataSource" matSort>
+			<ng-container matColumnDef="id">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Identifiant</th>
+				<td mat-cell *matCellDef="let row">{{row.id}}</td>
+			</ng-container>
+			<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+				<td mat-cell *matCellDef="let row">{{row.nom}}</td>
+			</ng-container>
+			<ng-container matColumnDef="author">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Auteur</th>
+				<td mat-cell *matCellDef="let row">{{row.auteur}}</td>
+			</ng-container>
+			<ng-container matColumnDef="course">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Matière</th>
+				<td mat-cell *matCellDef="let row">{{row._course}}</td>
+			</ng-container>
+			<ng-container matColumnDef="date">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Date de rendu</th>
+				<td mat-cell *matCellDef="let row">{{row.dateDeRendu | date:'dd/MM/yyyy'}}</td>
+			</ng-container>
+			<ng-container matColumnDef="remarque">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Remarque</th>
+				<td mat-cell *matCellDef="let row">{{row.remarque}}</td>
+			</ng-container>
+			<ng-container matColumnDef="note">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Note/20</th>
+				<td mat-cell *matCellDef="let row">{{row.note}}</td>
+			</ng-container>
+			<ng-container matColumnDef="rendu">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Rendu ?</th>
+				<td mat-cell *matCellDef="let row">{{row.rendu ? "Oui" : "Non"}}</td>
+			</ng-container>
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row (click)="clickedRows.clear(); clickedRows.add(row);" [class.is-clicked]="clickedRows.has(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+			<tr class="mat-row" *matNoDataRow>
+				<td class="mat-cell" colspan="4">Aucune donnée ne correspond au filtre sélectionné</td>
+			</tr>
+		</table>
+
+		<mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons aria-label="Sélection du nombre de résultats par page"></mat-paginator>
+	</section>
+	<section>
+		<h3>Détails du devoir sélectionné</h3>
+
+		<span *ngIf="!clickedRows.size">Les détails du devoir apparaîtront une fois que vous en aurez sélectionné un.</span>
+
+		<app-assignment-detail *ngFor="let clickedRow of clickedRows" [assignmentTransmis]="clickedRow"></app-assignment-detail>
+	</section>
+</section>
