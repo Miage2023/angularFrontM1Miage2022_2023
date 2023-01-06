@@ -34,7 +34,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
 import { EditAssignmentComponent } from "./assignments/edit-assignment/edit-assignment.component";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-import { FooterComponent } from './footer/footer.component';
 
 var routes: Routes = [
 	{ path: "", component: AssignmentsComponent },
@@ -52,7 +51,6 @@ var routes: Routes = [
 		AssignmentDetailComponent,
 		AddAssignmentComponent,
 		EditAssignmentComponent,
-		FooterComponent
 	],
 	imports: [
 		BrowserModule,
