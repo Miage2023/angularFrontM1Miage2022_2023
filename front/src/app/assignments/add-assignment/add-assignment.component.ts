@@ -6,26 +6,25 @@ import { CoursesService } from "src/app/shared/courses.service";
 import { Assignment } from "../../models/assignment.model";
 import { Course } from "../../models/course.model";
 
-@Component( {
+@Component({
 	selector: "app-add-assignment",
 	templateUrl: "./add-assignment.component.html",
-	styleUrls: [ "./add-assignment.component.css" ]
-} )
+	styleUrls: ["./add-assignment.component.css"]
+})
 
-export class AddAssignmentComponent implements OnInit
-{
+export class AddAssignmentComponent implements OnInit {
 	teacher: string = "Inconnu";
 	image!: string;
 	courses: Course[] = [];
-	firstFormGroup = this._formBuilder.group( {
-		firstCtrl: [ "", Validators.required ],
-	} );
-	secondFormGroup = this._formBuilder.group( {
-		secondCtrl: [ "", Validators.required ],
-	} );
-	thirdFormGroup = this._formBuilder.group( {
-		thirdCtrl: [ "", Validators.required ],
-	} );
+	firstFormGroup = this._formBuilder.group({
+		firstCtrl: ["", Validators.required],
+	});
+	secondFormGroup = this._formBuilder.group({
+		secondCtrl: ["", Validators.required],
+	});
+	thirdFormGroup = this._formBuilder.group({
+		thirdCtrl: ["", Validators.required],
+	});
 
 	isLinear = true;
 
@@ -36,40 +35,34 @@ export class AddAssignmentComponent implements OnInit
 		private coursesService: CoursesService
 	) { }
 
-	ngOnInit()
-	{
-		this.coursesService.getCourses( 1, 10 )
-			.subscribe( data =>
-			{
+	ngOnInit() {
+		this.coursesService.getCourses(1, 10)
+			.subscribe(data => {
 				this.courses = data.docs;
-			} );
+			});
 	}
 
-	onChange( id: number )
-	{
-		this.coursesService.getCourse( id )
-			.subscribe( data =>
-			{
-				this.teacher = data.teacherName;
+	onChange(id: number) {
+		this.coursesService.getCourse(id)
+			.subscribe(data => {
+				this.teacher = data.profNom;
 				this.image = data.image;
-			} );
+			});
 	}
 
-	onSubmit()
-	{
-		if ( !this.firstFormGroup.value.firstCtrl || !this.secondFormGroup.value.secondCtrl || !this.thirdFormGroup.value.thirdCtrl )
-		{
+	onSubmit() {
+		if (!this.firstFormGroup.value.firstCtrl || !this.secondFormGroup.value.secondCtrl || !this.thirdFormGroup.value.thirdCtrl) {
 			return;
 		}
 		var newAssignment = new Assignment();
-		newAssignment.id = Math.floor( Math.random() * 10000 );
+		newAssignment.id = Math.floor(Math.random() * 10000);
 		newAssignment.nom = this.firstFormGroup.value.firstCtrl;
 		newAssignment.course = +this.secondFormGroup.value.secondCtrl;
-		newAssignment.dateDeRendu = new Date( this.thirdFormGroup.value.thirdCtrl );
+		newAssignment.dateDeRendu = new Date(this.thirdFormGroup.value.thirdCtrl);
 		newAssignment.rendu = false;
-		this.assignmentsService.addAssignment( newAssignment ).subscribe( () => { } );
-		this.router.navigateByUrl( "/", { skipLocationChange: true } ).then( () =>
-			this.router.navigate( [ "/home" ] )
+		this.assignmentsService.addAssignment(newAssignment).subscribe(() => { });
+		this.router.navigateByUrl("/", { skipLocationChange: true }).then(() =>
+			this.router.navigate(["/home"])
 		);
 	}
 }

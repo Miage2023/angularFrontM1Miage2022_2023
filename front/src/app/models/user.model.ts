@@ -1,8 +1,7 @@
-export class Course
-{
+export class User {
 	_id?: number;
-	email!: number;
-	password!: string;
+	mail!: number;
+	mot_de_passe!: string;
 	admin!: boolean;
 	updatedAt!: Date;
 }

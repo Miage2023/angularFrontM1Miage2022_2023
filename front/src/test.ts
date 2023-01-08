@@ -2,18 +2,16 @@
 
 import "zone.js/testing";
 import { getTestBed } from "@angular/core/testing";
-import
-{
-	BrowserDynamicTestingModule,
-	platformBrowserDynamicTesting
+import {
+BrowserDynamicTestingModule,
+platformBrowserDynamicTesting
 } from "@angular/platform-browser-dynamic/testing";
 
 declare var require: {
-	context( path: string, deep?: boolean, filter?: RegExp ):
-		{
-			<T>( id: string ): T;
-			keys(): string[];
-		};
+	context(path: string, deep?: boolean, filter?: RegExp): {
+		<T>(id: string): T;
+		keys(): string[];
+	};
 };
 
 // First, initialize the Angular testing environment.
@@ -23,7 +21,7 @@ getTestBed().initTestEnvironment(
 );
 
 // Then we find all the tests.
-var context = require.context( "./", true, /\.spec\.ts$/ );
+var context = require.context("./", true, /\.spec\.ts$/);
 
 // And load the modules.
-context.keys().forEach( context );
+context.keys().forEach(context);

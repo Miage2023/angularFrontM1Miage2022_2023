@@ -14,14 +14,14 @@
 			<mat-form-field appearance="fill">
 				<mat-label>Entrer votre adresse électronique</mat-label>
 
-				<input matInput [(ngModel)]="email" required>
+				<input matInput [(ngModel)]="mail" required>
 
 				<mat-error *ngIf="validator.invalid">{{getErrorMessage()}}</mat-error>
 			</mat-form-field>
 			<mat-form-field appearance="fill">
 				<mat-label>Entrer votre mot de passe</mat-label>
 
-				<input matInput [(ngModel)]="password" [type]="hide ? 'password' : 'text'" required>
+				<input matInput [(ngModel)]="mot_de_passe" [type]="hide ? 'password' : 'text'" required>
 
 				<mat-error *ngIf="validator.invalid">{{getErrorMessage()}}</mat-error>
 

@@ -8,18 +8,17 @@ import { CoursesService } from "src/app/shared/courses.service";
 import { Assignment } from "../models/assignment.model";
 import { Course } from "../models/course.model";
 
-@Component( {
+@Component({
 	selector: "app-assignments",
 	templateUrl: "./assignments.component.html",
-	styleUrls: [ "./assignments.component.css" ]
-} )
+	styleUrls: ["./assignments.component.css"]
+})
 
-export class AssignmentsComponent implements OnInit
-{
-	@ViewChild( MatPaginator )
+export class AssignmentsComponent implements OnInit {
+	@ViewChild(MatPaginator)
 	paginator!: MatPaginator;
 
-	@ViewChild( MatSort )
+	@ViewChild(MatSort)
 	sort!: MatSort;
 	nomDevoir = "";
 	remarque = "";
@@ -27,7 +26,7 @@ export class AssignmentsComponent implements OnInit
 	rendu = false;
 	course = 0;
 	dataSource!: MatTableDataSource<Assignment>;
-	displayedColumns: string[] = [ "id", "name", "author", "course", "date", "remarque", "note", "rendu" ];
+	displayedColumns: string[] = ["id", "name", "author", "course", "date", "remarque", "note", "rendu"];
 	selection!: Assignment | undefined;
 	formVisible = false;
 	page: number = 1;
@@ -50,17 +49,13 @@ export class AssignmentsComponent implements OnInit
 		private assignmentsService: AssignmentsService
 	) { }
 
-	ngOnInit(): void
-	{
-		this.coursesService.getCourses( this.page, this.limit ).subscribe( courses =>
-		{
-			this.courses = courses.docs.map( ( course: Course ) =>
-			{
+	ngOnInit(): void {
+		this.coursesService.getCourses(this.page, this.limit).subscribe(courses => {
+			this.courses = courses.docs.map((course: Course) => {
 				return course.nom;
-			} );
-			this.assignmentsService.getAssignments( this.page, this.limit )
-				.subscribe( assignments =>
-				{
+			});
+			this.assignmentsService.getAssignments(this.page, this.limit)
+				.subscribe(assignments => {
 					this.assignments = assignments.docs;
 					this.page = assignments.page;
 					this.limit = assignments.limit;
@@ -71,38 +66,32 @@ export class AssignmentsComponent implements OnInit
 					this.hasNextPage = assignments.hasNextPage;
 					this.nextPage = assignments.nextPage;
 
-					this.assignments = this.assignments.map( ( assignment: Assignment ) =>
-					{
-						assignment._course = this.courses[ assignment.course as number - 1 ];
+					this.assignments = this.assignments.map((assignment: Assignment) => {
+						assignment._course = this.courses[assignment.course as number - 1];
 						return assignment;
-					} );
+					});
 
-					this.dataSource = new MatTableDataSource( this.assignments );
+					this.dataSource = new MatTableDataSource(this.assignments);
 					this.dataSource.sort = this.sort;
 					this.dataSource.paginator = this.paginator;
-				} );
-		} );
+				});
+		});
 	}
 
-	assignmentClique( assignment: Assignment )
-	{
-		if ( this.selection === assignment )
-		{
+	assignmentClique(assignment: Assignment) {
+		if (this.selection === assignment) {
 			this.selection = undefined;
 		}
-		else
-		{
+		else {
 			this.selection = assignment;
 		}
 	}
 
-	onAddAssignmentBtnClick()
-	{
+	onAddAssignmentBtnClick() {
 		this.formVisible = true;
 	}
 
-	onNouvelAssignment()
-	{
+	onNouvelAssignment() {
 		this.formVisible = false;
 	}
 }

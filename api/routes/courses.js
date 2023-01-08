@@ -36,7 +36,7 @@ function addCourse( request, result )
 	var course = new Course();
 	course.id = request.body.id;
 	course.nom = request.body.nom;
-	course.teacherName = request.body.teacherName;
+	course.profNom = request.body.profNom;
 	course.teacherAvatar = request.body.teacherAvatar;
 
 	course.save( ( dbError ) =>

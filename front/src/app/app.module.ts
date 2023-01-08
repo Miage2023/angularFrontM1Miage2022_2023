@@ -40,10 +40,10 @@ var routes: Routes = [
 	{ path: "home", component: AssignmentsComponent },
 	{ path: "add", component: AddAssignmentComponent },
 	{ path: "assignment/:id", component: AddAssignmentComponent },
-	{ path: "assignment/:id/edit", component: EditAssignmentComponent, canActivate: [ AuthGuard ] },
+	{ path: "assignment/:id/edit", component: EditAssignmentComponent, canActivate: [AuthGuard] },
 ];
 
-@NgModule( {
+@NgModule({
 	declarations: [
 		AppComponent,
 		AssignmentsComponent,
@@ -77,14 +77,14 @@ var routes: Routes = [
 		MatCheckboxModule,
 		MatSlideToggleModule,
 
-		RouterModule.forRoot( routes ),
+		RouterModule.forRoot(routes),
 
 		HttpClientModule,
 	],
 	providers: [
 		{ provide: MAT_DATE_LOCALE, useValue: "fr-FR" },
 	],
-	bootstrap: [ AppComponent ]
-} )
+	bootstrap: [AppComponent]
+})
 
 export class AppModule { }
