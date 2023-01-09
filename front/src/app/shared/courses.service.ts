@@ -50,7 +50,7 @@ export class CoursesService {
 			newCourse.id = a.id;
 			newCourse.nom = a.nom;
 			newCourse.profNom = a.profNom;
-			newCourse.teacherAvatar = a.teacherAvatar;
+			newCourse.profImage = a.profImage;
 
 			appelsVersAddCourse.push(this.addCourse(newCourse));
 		});

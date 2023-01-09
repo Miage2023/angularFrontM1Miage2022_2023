@@ -18,7 +18,7 @@ export class AssignmentDetailComponent implements OnInit {
 	isAdmin = this.authService.isAdmin;
 	courseName = "";
 	profNom = "";
-	teacherAvatar = "";
+	profImage = "";
 
 	constructor(
 		private assignmentsService: AssignmentsService,
@@ -34,7 +34,7 @@ export class AssignmentDetailComponent implements OnInit {
 				data.docs = data.docs.filter((course: Course) => course.id === this.assignmentTransmis?.course)[0];
 				this.courseName = data.docs.nom;
 				this.profNom = data.docs.profNom;
-				this.teacherAvatar = data.docs.teacherAvatar;
+				this.profImage = data.docs.profImage;
 			});
 	}
 
