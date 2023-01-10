@@ -15,46 +15,22 @@ export class CoursesService {
 			"Content-Type": "application/json"
 		})
 	};
-
 	courses: Course[] = [];
-
 	constructor(private http: HttpClient) { }
-
 	url = environment.production ? "https://assignments-gzwx.onrender.com/api/courses" : "http://localhost:8010/api/courses";
-
 	getCourses(page: number, limit: number): Observable<any> {
 		return this.http.get<any>(this.url + "?page=" + page + "&limit=" + limit);
 	}
-
 	getCourse(id: number): Observable<Course> {
 		return this.http.get<Course>(this.url + "/" + id);
 	}
-
 	addCourse(course: Course): Observable<any> {
 		return this.http.post<Course>(this.url, course, this.HttpOptions);
 	}
-
 	updateCourse(course: Course): Observable<any> {
 		return this.http.put<Course>(this.url, course);
 	}
-
 	deleteCourse(course: Course): Observable<any> {
 		return this.http.delete(this.url + "/" + course._id);
-	}
-
-	peuplerBDAvecForkJoin(): Observable<any> {
-		var appelsVersAddCourse: any = [];
-
-		initialCourses.forEach((a) => {
-			var newCourse: any = new Course();
-			newCourse.id = a.id;
-			newCourse.nom = a.nom;
-			newCourse.profNom = a.profNom;
-			newCourse.profImage = a.profImage;
-
-			appelsVersAddCourse.push(this.addCourse(newCourse));
-		});
-
-		return forkJoin(appelsVersAddCourse);
 	}
 }
