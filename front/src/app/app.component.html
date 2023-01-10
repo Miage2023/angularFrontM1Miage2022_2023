@@ -1,10 +1,6 @@
 <main>
 	<header>
 		<section>
-			<a routerLink="/home">
-				<mat-icon aria-hidden="false" fontIcon="home"></mat-icon>
-				<h1>{{title}}</h1>
-			</a>
 			<div class="btnConnexion">
 				<button class="ajouterBtn" mat-flat-button color="primary" (click)="showLogin()" *ngIf="!loginVisible && !isLogged">Se connecter</button>
 				<button class="ajouterBtn" mat-flat-button color="primary" (click)="logout()" *ngIf="isLogged">Se déconnecter</button>
