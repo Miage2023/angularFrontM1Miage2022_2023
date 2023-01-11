@@ -1,10 +1,5 @@
-/* Réinitialisation de certaines règles de style */
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-/* Importation du thème d'Angular Material */
+body { margin: 0, sans-serif; }
 @import "@angular/material/prebuilt-themes/pink-bluegrey.css";
-
-/* Définition des marges par défaut du corps de la page */
 main {
     margin: 20px;
 }

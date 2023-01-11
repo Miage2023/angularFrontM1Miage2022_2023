@@ -1,25 +1,18 @@
-/* Liens et mécanismes de connexion */
 main > header section:first-of-type {
 	display: flex;
     justify-content: space-between;
 }
-
-/* Titre et logo du site */
 main > header a {
 	color: black;
 }
-
 main > header h1 {
 	display: inline-block;
 	font-size: 2rem;
 	margin-top: 0;
 }
-
 main > header mat-icon {
 	margin-right: 1rem;
 }
-
-/* Bouton de connexion/déconnexion */
 main > header section:first-of-type div {
 	display: flex;
 	gap: 0.5rem;
@@ -27,8 +20,6 @@ main > header section:first-of-type div {
 	align-items: flex-end;
 	margin-bottom: 1rem;
 }
-
-/* Formulaire de connexion */
 main > header section:nth-of-type(2) {
 	gap: 1rem;
     display: flex;
@@ -36,26 +27,10 @@ main > header section:nth-of-type(2) {
     justify-content: center;
     align-items: center;
 }
-
-/* Séparateur */
 main > hr {
 	margin-bottom: 1.25rem;
 }
 
 .btnConnexion{
 	margin-top: 5rem;
-}
-
-
-/** STYLE SMARTPHONE **/
-@media (hover: none), (max-width: 860px){
-	h3{
-		font-size: 70%;
-	}
-	main > header h1 {
-		font-size: 1em;
-	}
-	.btnConnexion{
-		font-size: 0.8em;
-	}
 }
