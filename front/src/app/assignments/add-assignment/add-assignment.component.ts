@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { FormBuilder, Validators } from "@angular/forms";
-import { AssignmentsService } from "src/app/shared/assignments.service";
-import { CoursesService } from "src/app/shared/courses.service";
-import { Assignment } from "../../models/assignment.model";
-import { Course } from "../../models/course.model";
+import { Component, OnInit } from "@angular/core"
+import { Router } from "@angular/router"
+import { FormBuilder, Validators } from "@angular/forms"
+import { AssignmentsService } from "src/app/shared/assignments.service"
+import { CoursesService } from "src/app/shared/courses.service"
+import { Assignment } from "../../models/assignment.model"
+import { Course } from "../../models/course.model"
 
 @Component({
 	selector: "app-add-assignment",
@@ -14,7 +14,7 @@ import { Course } from "../../models/course.model";
 
 export class AddAssignmentComponent implements OnInit {
 	teacher: string = "";
-	image!: string;
+	image!: string
 	courses: Course[] = [];
 	firstFormGroup = this._formBuilder.group({
 		firstCtrl: ["", Validators.required],
@@ -38,31 +38,31 @@ export class AddAssignmentComponent implements OnInit {
 	ngOnInit() {
 		this.coursesService.getCourses()
 			.subscribe(data => {
-				this.courses = data.docs;
-			});
+				this.courses = data.docs
+			})
 	}
 
 	onChange(id: number) {
 		this.coursesService.getCourse(id)
 			.subscribe(data => {
-				this.teacher = data.profNom;
-				this.image = data.image;
-			});
+				this.teacher = data.profNom
+				this.image = data.image
+			})
 	}
 
 	onSubmit() {
 		if (!this.firstFormGroup.value.firstCtrl || !this.secondFormGroup.value.secondCtrl || !this.thirdFormGroup.value.thirdCtrl) {
-			return;
+			return
 		}
-		var newAssignment = new Assignment();
-		newAssignment.id = Math.floor(Math.random() * 10000);
-		newAssignment.nom = this.firstFormGroup.value.firstCtrl;
-		newAssignment.course = +this.secondFormGroup.value.secondCtrl;
-		newAssignment.dateDeRendu = new Date(this.thirdFormGroup.value.thirdCtrl);
-		newAssignment.rendu = false;
-		this.assignmentsService.addAssignment(newAssignment).subscribe(() => { });
+		var newAssignment = new Assignment()
+		newAssignment.id = Math.floor(Math.random() * 10000)
+		newAssignment.nom = this.firstFormGroup.value.firstCtrl
+		newAssignment.course = +this.secondFormGroup.value.secondCtrl
+		newAssignment.dateDeRendu = new Date(this.thirdFormGroup.value.thirdCtrl)
+		newAssignment.rendu = false
+		this.assignmentsService.addAssignment(newAssignment).subscribe(() => { })
 		this.router.navigateByUrl("/", { skipLocationChange: true }).then(() =>
 			this.router.navigate(["/home"])
-		);
+		)
 	}
 }
