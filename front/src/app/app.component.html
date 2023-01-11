@@ -2,8 +2,8 @@
 	<header>
 		<section>
 			<div class="btnConnexion">
-				<button class="ajouterBtn" mat-flat-button color="primary" (click)="showLogin()" *ngIf="!loginVisible && !isLogged">Se connecter</button>
-				<button class="ajouterBtn" mat-flat-button color="primary" (click)="logout()" *ngIf="isLogged">Se déconnecter</button>
+				<button class="ajouterBtn" mat-flat-button color="primary" (click)="showLogin()" *ngIf="!loginVisible && !isLogged">Connexion</button>
+				<button class="ajouterBtn" mat-flat-button color="primary" (click)="logout()" *ngIf="isLogged">Déconnexion</button>
 			</div>
 		</section>
 		<section *ngIf="loginVisible">
@@ -19,7 +19,7 @@
 					<mat-icon>{{hide ? "visibility_off" : "visibility"}}</mat-icon>
 				</button>
 			</mat-form-field>
-			<button class="ajouterBtn" mat-flat-button color="accent" (click)="login()">Se connecter</button>
+			<button class="ajouterBtn" mat-flat-button color="accent" (click)="login()">Connexion</button>
 		</section>
 	</header>
 	<router-outlet></router-outlet>

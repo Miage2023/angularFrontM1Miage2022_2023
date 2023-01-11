@@ -26,7 +26,7 @@ export class AssignmentsComponent implements OnInit {
 	rendu = false;
 	course = 0;
 	dataSource!: MatTableDataSource<Assignment>
-	displayedColumns: string[] = ["id", "name", "author", "course", "date", "remarque", "note", "rendu"];
+	displayedColumns: string[] = ["name", "course", "date", "author", "note", "rendu"];
 	selection!: Assignment | undefined
 	formVisible = false;
 	page: number = 1;
