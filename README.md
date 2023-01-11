@@ -10,3 +10,5 @@ Compte admin :
 Compte user :
 - miageuser@gmail.com
 - test123
+
+URL de test de l'application : https://dapper-kheer-98d13d.netlify.app/
