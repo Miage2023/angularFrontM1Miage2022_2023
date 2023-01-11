@@ -50,7 +50,7 @@ export class AssignmentsComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		this.coursesService.getCourses(this.page, this.limit).subscribe(courses => {
+		this.coursesService.getCourses().subscribe(courses => {
 			this.courses = courses.docs.map((course: Course) => {
 				return course.nom;
 			});

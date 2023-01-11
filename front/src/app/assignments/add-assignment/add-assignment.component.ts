@@ -13,7 +13,7 @@ import { Course } from "../../models/course.model";
 })
 
 export class AddAssignmentComponent implements OnInit {
-	teacher: string = "Inconnu";
+	teacher: string = "";
 	image!: string;
 	courses: Course[] = [];
 	firstFormGroup = this._formBuilder.group({
@@ -36,7 +36,7 @@ export class AddAssignmentComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
-		this.coursesService.getCourses(1, 10)
+		this.coursesService.getCourses()
 			.subscribe(data => {
 				this.courses = data.docs;
 			});

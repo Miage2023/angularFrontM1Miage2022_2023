@@ -8,19 +8,13 @@
 		</section>
 		<section *ngIf="loginVisible">
 			<mat-form-field appearance="fill">
-				<mat-label>Entrer votre adresse électronique</mat-label>
+				<mat-label>Email</mat-label>
 
 				<input matInput [(ngModel)]="mail" required>
-
-				<mat-error *ngIf="validator.invalid">{{getErrorMessage()}}</mat-error>
 			</mat-form-field>
 			<mat-form-field appearance="fill">
-				<mat-label>Entrer votre mot de passe</mat-label>
-
+				<mat-label>Password</mat-label>
 				<input matInput [(ngModel)]="mot_de_passe" [type]="hide ? 'password' : 'text'" required>
-
-				<mat-error *ngIf="validator.invalid">{{getErrorMessage()}}</mat-error>
-
 				<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
 					<mat-icon>{{hide ? "visibility_off" : "visibility"}}</mat-icon>
 				</button>

@@ -59,7 +59,7 @@ export class EditAssignmentComponent implements OnInit {
 			this.onChange(assignment.course as number);
 		});
 
-		this.coursesService.getCourses(1, 10)
+		this.coursesService.getCourses()
 			.subscribe(data => {
 				this.courses = data.docs;
 			});

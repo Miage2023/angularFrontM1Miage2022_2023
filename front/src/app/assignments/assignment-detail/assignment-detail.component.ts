@@ -29,7 +29,7 @@ export class AssignmentDetailComponent implements OnInit {
 
 	ngOnInit(): void {
 		if (!this.assignmentTransmis) return;
-		this.coursesService.getCourses(1, 10)
+		this.coursesService.getCourses()
 			.subscribe(data => {
 				data.docs = data.docs.filter((course: Course) => course.id === this.assignmentTransmis?.course)[0];
 				this.courseName = data.docs.nom;

@@ -14,7 +14,6 @@ import { CoursesService } from "./shared/courses.service";
 export class AppComponent {
 	mail = "";
 	mot_de_passe = "";
-	validator = new FormControl("", [Validators.required, Validators.email]);
 	hide = true;
 	isLogged = this.authService.isLogged;
 	isAdmin = this.authService.isAdmin;
@@ -56,12 +55,5 @@ export class AppComponent {
 	}
 	showLogin() {
 		this.loginVisible = true;
-	}
-	getErrorMessage() {
-		if (this.validator?.hasError("required")) {
-			return "Vous devez entrer une valeur";
-		}
-
-		return this.validator?.hasError("email") ? "Email pas valide" : "";
 	}
 }

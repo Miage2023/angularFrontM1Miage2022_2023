@@ -18,8 +18,8 @@ export class CoursesService {
 	courses: Course[] = [];
 	constructor(private http: HttpClient) { }
 	url = environment.production ? "https://assignments-gzwx.onrender.com/api/courses" : "http://localhost:8010/api/courses";
-	getCourses(page: number, limit: number): Observable<any> {
-		return this.http.get<any>(this.url + "?page=" + page + "&limit=" + limit);
+	getCourses(): Observable<any> {
+		return this.http.get<any>(this.url);
 	}
 	getCourse(id: number): Observable<Course> {
 		return this.http.get<Course>(this.url + "/" + id);
