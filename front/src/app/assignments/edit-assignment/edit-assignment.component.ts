@@ -51,7 +51,7 @@ export class EditAssignmentComponent implements OnInit {
 			this.firstFormGroup.setValue({ firstCtrl: assignment.nom })
 			this.secondFormGroup.setValue({ secondCtrl: assignment.course.toString() })
 			this.thirdFormGroup.setValue({ thirdCtrl: assignment.dateDeRendu.toString() })
-			this.fourthFormGroup.setValue({ fourthCtrl: assignment.note.toString() })
+			this.fourthFormGroup.setValue({ fourthCtrl: (assignment.note || "0").toString() })
 			this.fifthFormGroup.setValue({ fifthCtrl: assignment.remarque })
 			this.onChange(assignment.course as number)
 		})
