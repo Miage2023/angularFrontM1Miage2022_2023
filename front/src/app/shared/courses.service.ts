@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core"
-import { Course } from "../models/course.model"
-import { forkJoin, Observable } from "rxjs"
+import { Course } from "../models/matiere.model"
+import { Observable } from "rxjs"
 import { HttpClient, HttpHeaders } from "@angular/common/http"
-import { initialCourses } from "./data"
 import { environment } from "../../environments/environment"
 
 @Injectable({

@@ -3,8 +3,8 @@ import { Router } from "@angular/router"
 import { FormBuilder, Validators } from "@angular/forms"
 import { AssignmentsService } from "src/app/shared/assignments.service"
 import { CoursesService } from "src/app/shared/courses.service"
-import { Assignment } from "../../models/assignment.model"
-import { Course } from "../../models/course.model"
+import { Assignment } from "../../models/devoir.model"
+import { Course } from "../../models/matiere.model"
 
 @Component({
 	selector: "app-add-assignment",

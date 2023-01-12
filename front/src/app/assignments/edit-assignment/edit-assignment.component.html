@@ -3,7 +3,7 @@
 <mat-stepper orientation="vertical" [linear]="isLinear" *ngIf="assignment" #stepper>
 	<mat-step [stepControl]="firstFormGroup">
 		<form [formGroup]="firstFormGroup">
-			<ng-template matStepLabel>Entrez le nom du devoir</ng-template>
+			<ng-template matStepLabel>Nom du devoir</ng-template>
 
 			<mat-form-field appearance="fill">
 				<mat-label>Nom du devoir</mat-label>
@@ -11,18 +11,18 @@
 			</mat-form-field>
 
 			<div>
-				<button mat-button matStepperNext>Suivant</button>
+				<button mat-button matStepperNext>Next</button>
 			</div>
 		</form>
 	</mat-step>
 	<mat-step [stepControl]="secondFormGroup">
 		<form [formGroup]="secondFormGroup">
-			<ng-template matStepLabel>Sélectionnez la matière</ng-template>
+			<ng-template matStepLabel>Matière</ng-template>
 
 			<mat-form-field appearance="fill">
 				<mat-label>Matière</mat-label>
 
-				<mat-select (selectionChange)="onChange($event.value)" formControlName="secondCtrl" [compareWith]="compareById">
+				<mat-select (selectionChange)="onChange($event.value)" formControlName="secondCtrl">
 					<mat-option *ngFor="let course of courses" [value]="course.id">
 						{{course.nom}}
 					</mat-option>
@@ -30,14 +30,14 @@
 			</mat-form-field>
 
 			<div>
-				<button mat-button matStepperPrevious>Précédent</button>
-				<button mat-button matStepperNext>Suivant</button>
+				<button mat-button matStepperPrevious>Previous</button>
+				<button mat-button matStepperNext>Next</button>
 			</div>
 		</form>
 	</mat-step>
 	<mat-step [stepControl]="thirdFormGroup">
 		<form [formGroup]="thirdFormGroup">
-			<ng-template matStepLabel>Indiquez la date de rendu</ng-template>
+			<ng-template matStepLabel>Date de rendu</ng-template>
 
 			<mat-form-field appearance="fill">
 				<mat-label>Date de rendu</mat-label>
@@ -50,14 +50,14 @@
 			</mat-form-field>
 
 			<div>
-				<button mat-button matStepperPrevious>Précédent</button>
-				<button mat-button matStepperNext>Suivant</button>
+				<button mat-button matStepperPrevious>Previous</button>
+				<button mat-button matStepperNext>Next</button>
 			</div>
 		</form>
 	</mat-step>
 	<mat-step [stepControl]="fourthFormGroup">
 		<form [formGroup]="fourthFormGroup">
-			<ng-template matStepLabel>Indiquez la note d'évaluation</ng-template>
+			<ng-template matStepLabel>Note d'évaluation</ng-template>
 
 			<mat-form-field appearance="fill">
 				<mat-label>Note du devoir</mat-label>
@@ -65,14 +65,14 @@
 			</mat-form-field>
 
 			<div>
-				<button mat-button matStepperPrevious>Précédent</button>
-				<button mat-button matStepperNext>Suivant</button>
+				<button mat-button matStepperPrevious>Previous</button>
+				<button mat-button matStepperNext>Next</button>
 			</div>
 		</form>
 	</mat-step>
 	<mat-step [stepControl]="fifthFormGroup">
 		<form [formGroup]="fifthFormGroup">
-			<ng-template matStepLabel>Indiquez la remarque</ng-template>
+			<ng-template matStepLabel>Remarque</ng-template>
 
 			<mat-form-field appearance="fill">
 				<mat-label>Remarque du devoir</mat-label>
@@ -80,20 +80,20 @@
 			</mat-form-field>
 
 			<div>
-				<button mat-button matStepperPrevious>Précédent</button>
-				<button mat-button matStepperNext>Suivant</button>
+				<button mat-button matStepperPrevious>Previous</button>
+				<button mat-button matStepperNext>Next</button>
 			</div>
 		</form>
 	</mat-step>
 
 	<mat-step>
-		<ng-template matStepLabel>Terminé</ng-template>
-		<p>Responsable de la matière : {{teacher}}</p>
-		<img src="{{image}}" alt="Photo de la matière">
+		<ng-template matStepLabel>OK</ng-template>
+		<p>Professeur : {{teacher}}</p>
+		<img src="{{image}}" alt="Photo">
 		<div>
-			<button mat-button matStepperPrevious>Précédent</button>
-			<button mat-button (click)="stepper.reset()">Réinitialiser les informations</button>
-			<button mat-stroked-button color="primary" (click)="onSaveAssignment();">Modifier le devoir</button>
+			<button mat-button matStepperPrevious>Previous</button>
+			<button mat-button (click)="stepper.reset()">Réinitialiser</button>
+			<button mat-stroked-button color="primary" (click)="onSaveAssignment();">Modifier</button>
 		</div>
 	</mat-step>
 </mat-stepper>

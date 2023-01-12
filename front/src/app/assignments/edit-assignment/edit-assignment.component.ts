@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from "@angular/router"
 import { FormBuilder, Validators } from "@angular/forms"
 import { AssignmentsService } from "src/app/shared/assignments.service"
 import { CoursesService } from "src/app/shared/courses.service"
-import { Assignment } from "../../models/assignment.model"
-import { Course } from "../../models/course.model"
+import { Assignment } from "../../models/devoir.model"
+import { Course } from "../../models/matiere.model"
 
 @Component({
 	selector: "app-edit-assignment",
@@ -15,7 +15,7 @@ import { Course } from "../../models/course.model"
 export class EditAssignmentComponent implements OnInit {
 	assignment!: Assignment | undefined
 	noteAssignment!: number
-	teacher: string = "Inconnu";
+	teacher: string = "";
 	image!: string
 	courses: Course[] = [];
 	firstFormGroup = this._formBuilder.group({
@@ -35,9 +35,6 @@ export class EditAssignmentComponent implements OnInit {
 	});
 
 	isLinear = true;
-	compareById(object1: any, object2: any) {
-		return object1 == object2
-	}
 
 	constructor(
 		private _formBuilder: FormBuilder,

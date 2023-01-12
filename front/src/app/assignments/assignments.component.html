@@ -1,7 +1,7 @@
 <section>
 	<header>
 		<aside>
-			<button class="ajouterBtn" mat-flat-button color="accent" (click)="onAddAssignmentBtnClick()" *ngIf="isLogged">Ajouter un nouveau devoir</button>
+			<button class="ajouterBtn" mat-flat-button color="accent" (click)="onAddAssignmentBtnClick()" *ngIf="isLogged">Nouveau assignement</button>
 		</aside>
 	</header>
 	<app-add-assignment *ngIf="formVisible"></app-add-assignment>
@@ -38,7 +38,7 @@
 			</tr>
 		</table>
 
-		<mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons aria-label="Résultats"></mat-paginator>
+		<mat-paginator [pageSizeOptions]="[10, 30, 50, 100]" showFirstLastButtons aria-label="Résultats"></mat-paginator>
 	</section>
 	<section>
 		<app-assignment-detail *ngFor="let clickedRow of clickedRows" [assignmentTransmis]="clickedRow"></app-assignment-detail>

@@ -5,8 +5,8 @@ import { MatTableDataSource } from "@angular/material/table"
 import { AuthService } from "../shared/auth.service"
 import { AssignmentsService } from "../shared/assignments.service"
 import { CoursesService } from "src/app/shared/courses.service"
-import { Assignment } from "../models/assignment.model"
-import { Course } from "../models/course.model"
+import { Assignment } from "../models/devoir.model"
+import { Course } from "../models/matiere.model"
 
 @Component({
 	selector: "app-assignments",

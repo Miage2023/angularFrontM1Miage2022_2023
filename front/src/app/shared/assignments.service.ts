@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { Assignment } from "../models/assignment.model"
+import { Assignment } from "../models/devoir.model"
 import { Observable } from "rxjs"
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { CoursesService } from "./courses.service"
