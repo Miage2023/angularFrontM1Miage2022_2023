@@ -1,4 +1,4 @@
-body { margin: 0, sans-serif; }
+body { margin: 0; background-color: black; }
 @import "@angular/material/prebuilt-themes/pink-bluegrey.css";
 main {
     margin: 20px;
