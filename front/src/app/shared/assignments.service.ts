@@ -20,7 +20,7 @@ export class AssignmentsService {
 
 	constructor(private http: HttpClient) { }
 
-	url = environment.production ? "https://assignments-gzwx.onrender.com/api/assignments" : "http://localhost:8010/api/assignments";
+	url = environment.production ? "https://assignments-gsyj.onrender.com/api/assignments" : "http://localhost:8010/api/assignments";
 
 	getAssignments(page: number, limit: number, filter: boolean): Observable<any> {
 		return this.http.get<any>(this.url + "?page=" + page + "&limit=" + limit + "&filter=" + filter)

@@ -20,7 +20,7 @@ export class AuthService {
 
 	logIn(email: any, password: string) {
 		return new Promise((resolve, _reject) => {
-			this.http.post<any>(environment.production ? "https://assignments-gzwx.onrender.com/api/auth/login" : "http://localhost:8010/api/auth/login", { mail: email, mot_de_passe: password }, this.HttpOptions)
+			this.http.post<any>(environment.production ? "https://assignments-gsyj.onrender.com/api/auth/login" : "http://localhost:8010/api/auth/login", { mail: email, mot_de_passe: password }, this.HttpOptions)
 				.subscribe({
 					next: (httpData) => {
 						if (httpData.auth === true) {

@@ -16,7 +16,7 @@ export class CoursesService {
 	};
 	courses: Course[] = [];
 	constructor(private http: HttpClient) { }
-	url = environment.production ? "https://assignments-gzwx.onrender.com/api/courses" : "http://localhost:8010/api/courses";
+	url = environment.production ? "https://assignments-gsyj.onrender.com/api/courses" : "http://localhost:8010/api/courses";
 	getCourses(): Observable<any> {
 		return this.http.get<any>(this.url)
 	}
