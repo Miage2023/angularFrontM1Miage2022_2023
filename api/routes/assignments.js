@@ -1,7 +1,12 @@
 var Assignment = require("../model/assignments")
 
 function getAssignments(request, result) {
-	var query = Assignment.aggregate()
+	var filter = {}
+	filter.rendu = request.query.filter === "true"
+
+	console.log(filter, request.query)
+
+	var query = Assignment.aggregate([{ $match: filter }])
 
 	Assignment.aggregatePaginate(query, {
 		page: parseInt(request.query.page) || 1,

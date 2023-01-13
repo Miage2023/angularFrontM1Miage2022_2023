@@ -38,6 +38,7 @@ export class AssignmentsComponent implements OnInit {
 	hasNextPage!: boolean
 	nextPage!: number
 	courses!: string[]
+	filtre: boolean = false;
 	assignments!: Assignment[]
 	clickedRows = new Set<Assignment>();
 	isLogged = this.authService.isLogged;
@@ -54,7 +55,7 @@ export class AssignmentsComponent implements OnInit {
 			this.courses = courses.docs.map((course: Course) => {
 				return course.nom
 			})
-			this.assignmentsService.getAssignments(this.page, this.limit)
+			this.assignmentsService.getAssignments(this.page, this.limit, this.filtre)
 				.subscribe(assignments => {
 					this.assignments = assignments.docs
 					this.page = assignments.page
@@ -76,6 +77,10 @@ export class AssignmentsComponent implements OnInit {
 					this.dataSource.paginator = this.paginator
 				})
 		})
+	}
+
+	onUpdateFiltre() {
+		this.ngOnInit()
 	}
 
 	assignmentClique(assignment: Assignment) {

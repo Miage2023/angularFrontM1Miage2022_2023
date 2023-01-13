@@ -18,12 +18,12 @@ export class AssignmentsService {
 
 	assignments: Assignment[] = [];
 
-	constructor(private http: HttpClient, private coursesService: CoursesService) { }
+	constructor(private http: HttpClient) { }
 
 	url = environment.production ? "https://assignments-gzwx.onrender.com/api/assignments" : "http://localhost:8010/api/assignments";
 
-	getAssignments(page: number, limit: number): Observable<any> {
-		return this.http.get<any>(this.url + "?page=" + page + "&limit=" + limit)
+	getAssignments(page: number, limit: number, filter: boolean): Observable<any> {
+		return this.http.get<any>(this.url + "?page=" + page + "&limit=" + limit + "&filter=" + filter)
 	}
 	getAssignment(id: number): Observable<Assignment | undefined> {
 		return this.http.get<Assignment>(this.url + "/" + id)

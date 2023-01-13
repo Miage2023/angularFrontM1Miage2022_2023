@@ -1,6 +1,7 @@
 <section>
 	<header>
 		<aside>
+			<mat-checkbox class="filtre" (change)="onUpdateFiltre()" [(ngModel)]="filtre">Seulement les assignements rendus ?</mat-checkbox>
 			<button class="ajouterBtn" mat-flat-button color="accent" (click)="onAddAssignmentBtnClick()" *ngIf="isLogged">Nouveau assignement</button>
 		</aside>
 	</header>
@@ -34,7 +35,7 @@
 			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 			<tr mat-row (click)="clickedRows.clear(); clickedRows.add(row);" [class.is-clicked]="clickedRows.has(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
 			<tr class="mat-row" *matNoDataRow>
-				<td class="mat-cell" colspan="4">Pas de données/td>
+				<td class="mat-cell" colspan="4">Pas de données</td>
 			</tr>
 		</table>
 
