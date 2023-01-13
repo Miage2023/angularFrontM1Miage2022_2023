@@ -1,3 +1,19 @@
+/* Conteneur principal */
+section {
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+}
+section header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+	align-items: center;
+}
+section > header{
+	display: flex;
+	justify-content: space-around;
+}
 table {
 	width: 100%;
 }
